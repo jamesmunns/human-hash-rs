@@ -1,0 +1,11 @@
+[package]
+name = "human-hash"
+version = "0.1.0"
+authors = ["James Munns <james.munns@gmail.com>"]
+license = "MIT"
+description = "Generate human readable hash digests"
+repository = "https://github.com/jamesmunns/human-hash-rs"
+documentation = "https://docs.rs/crate/human-hash/"
+
+[dependencies]
+uuid = { version = "0.2", features = ["v4"] }
