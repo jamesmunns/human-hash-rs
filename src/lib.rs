@@ -46,11 +46,8 @@ const DEFAULT_WORDLIST: &'static [ &'static str ] = &[
 
 fn compress(bytes: &[u8], target: usize) -> Vec<u8> {
     let seg_size = bytes.len() / target;
-    bytes
-        .chunks(seg_size)
-        .map(|c| {
-            c.iter().fold(0u8, |acc, &x| acc ^ x)
-        })
+    bytes.chunks(seg_size)
+        .map(|c| c.iter().fold(0u8, |acc, &x| acc ^ x))
         .collect::<Vec<u8>>()
 }
 
