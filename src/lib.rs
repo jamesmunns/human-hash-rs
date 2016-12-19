@@ -44,21 +44,14 @@ const DEFAULT_WORDLIST: &'static [ &'static str ] = &[
     "wisconsin", "wolfram", "wyoming", "xray", "yankee", "yellow", "zebra",
     "zulu" ];
 
-/// TODO: Not very dynamic
 fn compress(bytes: &[u8], target: usize) -> Vec<u8> {
-    let mut ret: Vec<u8> = Vec::new();
-
     let seg_size = bytes.len() / target;
-
-    for i in 0..target {
-        let mut acc = 0u8;
-        for j in (i*seg_size)..((i+1)*seg_size) {
-            acc ^= bytes[j as usize];
-        }
-        ret.push(acc)
-    }
-
-    ret
+    bytes
+        .chunks(seg_size)
+        .map(|c| {
+            c.iter().fold(0u8, |acc, &x| acc ^ x)
+        })
+        .collect::<Vec<u8>>()
 }
 
 pub fn digest_four(uuid: &Uuid) -> String {
