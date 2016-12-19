@@ -1,3 +1,7 @@
+//! Generate human readable digests for UUIDs
+//!
+//! Based on https://github.com/zacharyvoase/humanhash
+
 extern crate uuid;
 
 use uuid::Uuid;
@@ -57,7 +61,7 @@ fn compress(bytes: &[u8], target: usize) -> Vec<u8> {
     ret
 }
 
-fn digest_four(uuid: &Uuid) -> String {
+pub fn digest_four(uuid: &Uuid) -> String {
     compress(uuid.as_bytes(), 4)
         .iter()
         .map(|&x| DEFAULT_WORDLIST[x as usize].to_string())
