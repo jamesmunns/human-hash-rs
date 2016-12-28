@@ -95,7 +95,7 @@ pub fn humanize(uuid: &Uuid, words_out: usize) -> String {
 mod tests {
     use super::uuid::Uuid;
     use super::DEFAULT_WORDLIST;
-    use super::{digest_four, humanize, HumanHasher};
+    use super::{humanize, HumanHasher};
 
     const TEST_UUID: &'static str = "bc0f47f93dd046578d7eee645999b95e";
 
