@@ -8,4 +8,4 @@ repository = "https://github.com/jamesmunns/human-hash-rs"
 documentation = "https://docs.rs/crate/human-hash/"
 
 [dependencies]
-uuid = { version = "0.8", features = ["v4"] }
+uuid = { version = "1", features = ["v4"] }
